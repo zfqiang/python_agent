@@ -57,8 +57,8 @@ if text.startswith('['):
 else:
     data = [json.loads(line) for line in text.splitlines() if line.strip()]
 
-instructions = [entry['instruction'] for entry in data[0:100]]
-outputs = [entry['output'] for entry in data[0:100]]
+instructions = [entry['instruction'] for entry in data[0:5]]
+outputs = [entry['output'] for entry in data[0:5]]
 
 class MyVectorDBConnector:
     def __init__(self, embedding_name, embedding_fn):
@@ -89,8 +89,8 @@ vector_db.add_documents(instructions, outputs)
 
 class RAG_Bot:
     def __init__(self, vector_db, llm_api, n_results=2):
-        self.vector_db = vector_db
-        self.llm_api = llm_api
+        self.vector_db = vector_db # 向量数据库
+        self.llm_api = llm_api     # llmapi 大模型函数
         self.n_results = n_results
 
     def chat(self, user_query):

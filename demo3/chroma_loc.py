@@ -41,8 +41,8 @@ if text.startswith('['):
 else:
     data = [json.loads(line) for line in text.splitlines() if line.strip()]
 
-instructions = [entry['instruction'] for entry in data[0:1000]]
-outputs = [entry['output'] for entry in data[0:1000]]
+instructions = [entry['instruction'] for entry in data[0:5]]
+outputs = [entry['output'] for entry in data[0:5]]
 
 class MyVectorDBConnector:
     def __init__(self, embedding_name, embedding_fn):
