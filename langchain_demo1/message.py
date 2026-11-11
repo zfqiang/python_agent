@@ -26,3 +26,7 @@ messages = [
 
 response = agent.invoke({"messages": messages})
 print(response["messages"][-1].content)
+
+# print(response) 完整的消息列表，包含传入的历史+本次新增
+# response["messages"][-1] 最新一条AI回复 AIMessage
+# response["messages"][-1].content 最新一条AI回复的内容
